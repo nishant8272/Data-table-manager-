@@ -8,10 +8,9 @@ export const parseCSV = (file: File): Promise<TableRow[]> => {
       skipEmptyLines: true,
       transformHeader: (header) => header.trim().toLowerCase().replace(/ /g, '_'),
       complete: (results) => {
-        const rows = results.data
-          //@ts-ignore
+        const rows = (results.data as Record<string, string>[])
           .filter(row => Object.values(row).some(val => val !== '')) // Remove fully empty rows
-          .map((row: any, index: number) => ({
+          .map((row: Record<string, string>, index: number) => ({
             id: `row-${Date.now()}-${index}`,
             // Ensure fields like 'age' are converted to number if possible
             age: row.age ? parseInt(row.age, 10) : undefined,
@@ -19,7 +18,7 @@ export const parseCSV = (file: File): Promise<TableRow[]> => {
           }));
         resolve(rows as TableRow[]);
       },
-      error: (error: any) => reject(error),
+      error: (error: Error) => reject(error),
     });
   });
 };

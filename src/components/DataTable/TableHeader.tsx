@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { TableHead, TableRow, TableCell, TableSortLabel } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '@/store/hook';
+import { useAppDispatch} from '@/store/hook';
 import { setSortConfig } from '@/store/slices/filterSlice';
 import { SortConfig, TableColumn } from '@/types/table.types';
 
@@ -28,7 +28,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({ columns, sortConfig }) => {
         {columns.filter(col => col.visible).map((column) => (
           <TableCell
             key={column.id}
-            //@ts-ignore
+            //@ts-expect-error - MUI TableCell sortDirection prop type issue
             sortDirection={sortConfig.key === column.id ? sortConfig.direction : false}
             sx={{ whiteSpace: 'nowrap' }}
           >

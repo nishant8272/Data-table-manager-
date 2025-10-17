@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Box, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/store/hook';
-import { setColumnsModalOpen, closeConfirmModal } from '@/store/slices/uiSlice';
-import { toggleColumnVisibility, addColumn, setColumns } from '@/store/slices/tableSlice';
+import { setColumnsModalOpen } from '@/store/slices/uiSlice';
+import { toggleColumnVisibility, addColumn} from '@/store/slices/tableSlice';
 import { TableColumn } from '@/types/table.types';
 import { useForm } from 'react-hook-form';
 

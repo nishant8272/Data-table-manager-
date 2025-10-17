@@ -6,7 +6,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { store, persistor } from '@/store';
 import { useAppSelector } from '@/store/hook';
 import { getTheme } from '@/theme/muiTheme';
-import { Fragment } from 'react';
 
 // Theme provider wrapper to access Redux theme state
 const ThemeSelector = ({ children }: { children: React.ReactNode }) => {

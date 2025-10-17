@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TableRow, TableColumn, SortConfig } from '@/types/table.types';
+import { TableRow, TableColumn } from '@/types/table.types';
 
 // Dummy data for initial state
 const initialRows: TableRow[] = [

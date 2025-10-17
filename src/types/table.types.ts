@@ -6,7 +6,7 @@ export interface TableRow {
   role: string;
   department?: string;
   location?: string;
-  [key: string]: any; // Dynamic fields
+  [key: string]: string | number | undefined; // Dynamic fields
 }
 
 export interface TableColumn {

@@ -19,11 +19,10 @@ const uiPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    //@ts-ignore
+    //@ts-expect-error - persistReducer type issue with Redux Toolkit
     table: persistReducer(tablePersistConfig, tableReducer),
-    //@ts-ignore
     filter: filterReducer,
-    //@ts-ignore
+    //@ts-expect-error - persistReducer type issue with Redux Toolkit
     ui: persistReducer(uiPersistConfig, uiReducer), 
   },
   middleware: (getDefaultMiddleware) =>

@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography, Box, Alert, LinearProgress } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/store/hook';
-import { setImportModalOpen, closeConfirmModal } from '@/store/slices/uiSlice';
+import { setImportModalOpen } from '@/store/slices/uiSlice';
 import { parseCSV } from '@/utils/csvParser';
 import { setRows } from '@/store/slices/tableSlice';
 
@@ -49,9 +49,10 @@ const ImportCSVModal: React.FC = () => {
       }
       dispatch(setRows(newRows));
       handleClose();
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error(e);
-      setError(`Import failed. Error: ${e.message || 'Invalid file format.'}`);
+      const errorMessage = e instanceof Error ? e.message : 'Invalid file format.';
+      setError(`Import failed. Error: ${errorMessage}`);
     } finally {
       setLoading(false);
     }

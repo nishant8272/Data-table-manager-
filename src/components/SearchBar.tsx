@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useAppDispatch, useAppSelector } from '@/store/hook';
@@ -7,7 +7,6 @@ import { setSearchQuery } from '@/store/slices/filterSlice';
 
 const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();
-  //@ts-ignore
   const initialQuery = useAppSelector((state) => state.filter.searchQuery);
   const [localQuery, setLocalQuery] = useState(initialQuery);
 

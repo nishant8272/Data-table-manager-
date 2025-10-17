@@ -55,7 +55,7 @@ const DataTableBodyRow: React.FC<TableRowProps> = ({ row, columns }) => {
         <TableCell key={column.id}>
           {isEditing && column.editable ? (
             <TextField
-              //@ts-ignore
+            //@ts-expect-error - react-hook-form register type issue with dynamic column keys
               {...register(column.id as keyof TableRow, {
                 valueAsNumber: column.type === 'number',
                 required: column.id === 'name',

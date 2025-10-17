@@ -1,4 +1,4 @@
-import { TableRow, TableColumn, SortConfig } from '@/types/table.types';
+import { TableRow,  SortConfig } from '@/types/table.types';
 
 export const filterAndSortData = (
   rows: TableRow[],
